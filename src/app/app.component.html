@@ -1,4 +1,46 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="main-area">
+  <div class="content-area">
+    <div class="header">
+      <h1>Manage Products</h1>
+      <hr />
+    </div>
+    <div class="container">
+      <!--Add product form-->
+      <div class="form-area">
+        <h3>Create Product</h3>
+        <!-- #4 Create a local Referance variable #productsForm="ngForm" -->
+        <!-- #5 Create a onProductCreate method and pass the local Referance variable (productsForm.value) to fetch the input values -->
+        <form
+          #productsForm="ngForm"
+          (ngSubmit)="onProductCreate(productsForm.value)"
+        >
+          <label>Procuct Name</label>
+          <!-- #1:  name="pName", name="desc" & name="price" Convert into template Driven form -->
+          <!-- #2: Add ngModel -->
+          <input type="text" name="pName" ngModel />
+
+          <label>Procuct Description</label>
+          <input type="text" name="desc" ngModel />
+
+          <label>Procuct Price</label>
+          <input type="text" name="price" ngModel />
+
+          <input type="submit" value="Add Product" />
+        </form>
+      </div>
+
+      <!--Display product area-->
+      <div class="product-display-area">
+        <h3>All Products</h3>
+        <table id="products">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
