@@ -39,7 +39,14 @@
             <th>Description</th>
             <th>Price</th>
           </tr>
+          <tr *ngFor="let prod of allProducts; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ prod.pName }}</td>
+            <td>{{ prod.desc }}</td>
+            <td>${{ prod.price }}</td>
+          </tr>
         </table>
+        <input type="submit" value="Fetch Product" (click)="onProductFetch()" />
       </div>
     </div>
   </div>
