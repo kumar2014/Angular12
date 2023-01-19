@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { product } from './model/products';
 import { ProductService } from './Service/product.service';
 
@@ -10,7 +11,7 @@ import { ProductService } from './Service/product.service';
 export class AppComponent implements OnInit {
   allProducts: product[] = [];
   isFetching: boolean = false;
-  @ViewChild(productsForm) form: NgForm;
+  @ViewChild('productsForm') form: NgForm;
   // #8
   constructor(private productService: ProductService) {}
   // #9   onProductCreate(products: This products going to an ngform object
@@ -45,9 +46,14 @@ export class AppComponent implements OnInit {
     //Now we use find method to find an element in an array based on the given condition, this find method will return the first element from that array which satisfies the condition
     let currentProduct = this.allProducts.find((p) => {
       return p.id === id;
-      console.log(currentProduct);
     });
+    console.log(currentProduct);
     //populate the form with the product details
+    this.form.setValue({
+      pName: currentProduct.pName,
+      desc: currentProduct.desc,
+      price: currentProduct.price,
+    });
     //Change the button value to update product
   }
 }
