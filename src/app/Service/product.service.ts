@@ -59,6 +59,14 @@ export class ProductService {
       )
       .subscribe();
   }
+  updateProduct(id: string, value: product) {
+    this.http.put(
+      'https://angularbykumar-default-rtdb.firebaseio.com/products/' +
+        id +
+        '.json',
+      value
+    );
+  }
 }
 
 // Note:

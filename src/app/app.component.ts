@@ -11,6 +11,8 @@ import { ProductService } from './Service/product.service';
 export class AppComponent implements OnInit {
   allProducts: product[] = [];
   isFetching: boolean = false;
+  editMode: boolean = false;
+  curentProductId: string;
   @ViewChild('productsForm') form: NgForm;
   // #8
   constructor(private productService: ProductService) {}
@@ -25,7 +27,11 @@ export class AppComponent implements OnInit {
     this.fetchProduct();
   }
   onProductCreate(products: { pName: string; desc: string; price: string }) {
-    this.productService.createProduct(products);
+    if (!this.editMode) {
+      this.productService.createProduct(products);
+    } else {
+      this.productService.updateProduct(this.curentProductId, products);
+    }
   }
   // #10
   private fetchProduct() {
@@ -42,6 +48,7 @@ export class AppComponent implements OnInit {
     this.productService.deleteAllProduct();
   }
   onEditClicked(id: string) {
+    this.curentProductId = id;
     //Get the product based on the Id
     //Now we use find method to find an element in an array based on the given condition, this find method will return the first element from that array which satisfies the condition
     let currentProduct = this.allProducts.find((p) => {
@@ -55,5 +62,6 @@ export class AppComponent implements OnInit {
       price: currentProduct.price,
     });
     //Change the button value to update product
+    this.editMode = true;
   }
 }

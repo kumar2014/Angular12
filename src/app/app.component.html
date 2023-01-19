@@ -25,7 +25,10 @@
           <label>Procuct Price</label>
           <input type="text" name="price" ngModel />
 
-          <input type="submit" value="Add Product" />
+          <input
+            type="submit"
+            value="{{ editMode ? 'Update Product' : 'Add Product' }}"
+          />
         </form>
       </div>
 
