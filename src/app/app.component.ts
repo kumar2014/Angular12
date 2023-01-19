@@ -9,8 +9,9 @@ import { product } from './model/products';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  title = 'AngularHttpRequest';
   allProducts: product[] = [];
-  // #8
+
   constructor(private http: HttpClient) {}
   // #9   onProductCreate(products: This products going to an ngform object
 
@@ -18,40 +19,31 @@ export class AppComponent {
   ngOnInit() {
     this.fetchProduct();
   }
+
   // #12
   onProductFetch() {
-    this.fetchProduct();
+    // Ref Previous lession
   }
   onProductCreate(products: { pName: string; desc: string; price: string }) {
     console.log(products);
     // Please refer Privious Chapeter this section code there
   }
-  // #10
-  private fetchProduct() {
+
+  private fetchProduct() {}
+  onDeleteProduct(id: string) {
     this.http
-      .get<{ [key: string]: product }>(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products.json'
+      .delete(
+        'https://angularbykumar-default-rtdb.firebaseio.com/products/' +
+          id +
+          '.json'
       )
-      // #13 To diplay jon object in web browser
-      // This Pipe methos allows us to transform the data before it reaches this subscribe method
-      .pipe(
-        map((res) => {
-          const products = [];
-          for (const key in res) {
-            if (res.hasOwnProperty(key)) {
-              products.push({ ...res[key], id: key });
-            }
-          }
-          return products;
-        })
+      .subscribe();
+  }
+  onDeleteAllProduct() {
+    this.http
+      .delete(
+        'https://angularbykumar-default-rtdb.firebaseio.com/products.json/'
       )
-      // #12
-      .subscribe((products) => {
-        console.log(products);
-        this.allProducts = products;
-      });
+      .subscribe();
   }
 }
-
-// get<{ [key: string]: product }> we are Specifying the type of the response which this get method is going to return
-// So here the response is going to the type onject and this object is having a key type string and that key its going to hava a value and this value is goig to ba a type product it has in product.ts
