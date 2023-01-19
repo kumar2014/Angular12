@@ -10,6 +10,7 @@ import { product } from './model/products';
 })
 export class AppComponent {
   allProducts: product[] = [];
+  isFetching: boolean = false;
   // #8
   constructor(private http: HttpClient) {}
   // #9   onProductCreate(products: This products going to an ngform object
@@ -28,6 +29,7 @@ export class AppComponent {
   }
   // #10
   private fetchProduct() {
+    this.isFetching = true;
     this.http
       .get<{ [key: string]: product }>(
         'https://angularbykumar-default-rtdb.firebaseio.com/products.json'
@@ -49,6 +51,7 @@ export class AppComponent {
       .subscribe((products) => {
         console.log(products);
         this.allProducts = products;
+        this.isFetching = false;
       });
   }
 }
