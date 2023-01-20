@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { product } from './model/products';
 import { ProductService } from './Service/product.service';
 
@@ -8,18 +9,28 @@ import { ProductService } from './Service/product.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   allProducts: product[] = [];
   isFetching: boolean = false;
   editMode: boolean = false;
   curentProductId: string;
-  // #2
   errorMessage: string = null;
+  
+  // #6
+  errorSub: Subscription;
   @ViewChild('productsForm') form: NgForm;
 
   constructor(private productService: ProductService) {}
   ngOnInit() {
     this.fetchProduct();
+    // #4 lets subscribe the observable which we Subject will return
+    // this.productService.error.subscribe((message) => {
+    // #7
+    this.errorSub = this.productService.error.subscribe((message) => {
+      // Here lets assign erroSub with the subscribtion retuned by subscribe method
+      // this.productService.errorSubject and its going to return observable so ltes go head and subscribe that observable
+      this.errorMessage = message;
+    });
   }
 
   onProductFetch() {
@@ -39,10 +50,8 @@ export class AppComponent implements OnInit {
       (products) => {
         this.allProducts = products;
         this.isFetching = false;
-        // #1 Creating a second callback function for error handling
       },
       (err) => {
-        // #3
         this.errorMessage = err.message;
       }
     );
@@ -69,8 +78,11 @@ export class AppComponent implements OnInit {
 
     this.editMode = true;
   }
+  // #5
+  ngOnDestroy(): void {
+    // #8
+    this.errorSub.unsubscribe(); // Its always recomented to unsubscribe from the observable explicitly when the component will be destroyed
+  }
 }
 
-// Note:
-// #1 This callback function going to receive the error object which has occured.
-// #3 The error obj is going to have a message property and we assigning that message to this error message property of this app componant class.
+// Note: It always a good practice to unsubscribe from an observable explicitly

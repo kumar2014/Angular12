@@ -8,15 +8,13 @@
       <!--Add product form-->
       <div class="form-area">
         <h3>Create Product</h3>
-        <!-- #4 Create a local Referance variable #productsForm="ngForm" -->
-        <!-- #5 Create a onProductCreate method and pass the local Referance variable (productsForm.value) to fetch the input values -->
+
         <form
           #productsForm="ngForm"
           (ngSubmit)="onProductCreate(productsForm.value)"
         >
           <label>Procuct Name</label>
-          <!-- #1:  name="pName", name="desc" & name="price" Convert into template Driven form -->
-          <!-- #2: Add ngModel -->
+
           <input type="text" name="pName" ngModel />
 
           <label>Procuct Description</label>

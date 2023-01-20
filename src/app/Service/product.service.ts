@@ -1,12 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Subject } from 'rxjs';
 import { product } from '../model/products';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  // #1
+  error = new Subject<string>(); //It going to emit error message ad the error message its going to be a string value
   allProducts: product[] = [];
   constructor(private http: HttpClient) {}
   createProduct(products: { pName: string; desc: string; price: string }) {
@@ -18,30 +20,34 @@ export class ProductService {
         products,
         { headers }
       )
-      .subscribe((res) => {
-        console.log(res);
-      });
+      .subscribe(
+        (res) => {
+          console.log(res);
+          // #2 Creating a second callback function
+        },
+        (err) => {
+          // #3 lets access the Subject which we are storing the error property
+          this.error.next(err.message); // This subject its going to return error observable
+        }
+      );
   }
   fetchProduct() {
-    return (
-      this.http
-        .get<{ [key: string]: product }>(
-          'https://angularbykumar-default-rtdb.firebaseio.com/products.json'
-        )
-        // #13 To diplay jon object in web browser
-        // This Pipe methos allows us to transform the data before it reaches this subscribe method
-        .pipe(
-          map((res) => {
-            const products = [];
-            for (const key in res) {
-              if (res.hasOwnProperty(key)) {
-                products.push({ ...res[key], id: key });
-              }
+    return this.http
+      .get<{ [key: string]: product }>(
+        'https://angularbykumar-default-rtdb.firebaseio.com/products.json'
+      )
+
+      .pipe(
+        map((res) => {
+          const products = [];
+          for (const key in res) {
+            if (res.hasOwnProperty(key)) {
+              products.push({ ...res[key], id: key });
             }
-            return products;
-          })
-        )
-    );
+          }
+          return products;
+        })
+      );
   }
   deleteProduct(id: string) {
     this.http
