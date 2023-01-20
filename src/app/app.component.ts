@@ -15,7 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   editMode: boolean = false;
   curentProductId: string;
   errorMessage: string = null;
-  
+
   // #6
   errorSub: Subscription;
   @ViewChild('productsForm') form: NgForm;
