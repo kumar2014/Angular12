@@ -1,4 +1,64 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="form">
+  <h2 id="registration">Registration Form</h2>
+
+  <!-- #3 (ngSubmit)="onSubmit()" -->
+  <!-- #4 Specify local reference variable myForm and lets pass the local refernce variable to onSubmit as a argument  -->
+  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+    <label for="fname">First Name</label>
+    <input
+      type="text"
+      id="fname"
+      placeholder="Your name.."
+      name="firstname"
+      ngModel
+      required
+      #fname="ngModel"
+    />
+    <!-- #5 We have to specify the name to get the control object for this input field -->
+    <!-- #6 We have wrap ngModel The ngModal simply tell angular that this inupt element is a control of this form-->
+
+    <label for="lname">Last Name</label>
+    <input
+      type="text"
+      id="lname"
+      placeholder="Your last name.."
+      name="lastname"
+      ngModel
+      required
+    />
+
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Your last email.."
+      name="email"
+      ngModel
+      required
+      email
+    />
+
+    <label>Hobbies <i>(Optional)</i></label>
+    <div class="form-inline">
+      <label
+        ><input type="checkbox" value="sports" name="hobbies" ngModel />
+        Sports</label
+      >
+      <label
+        ><input type="checkbox" value="movies" name="hobbies" ngModel />
+        Movies</label
+      >
+      <label
+        ><input type="checkbox" value="music" name="hobbies" ngModel />
+        Music</label
+      >
+    </div>
+
+    <input
+      type="submit"
+      value="Submit"
+      id="btn"
+    /><!--#2 input typse must be submit-->
+  </form>
+</div>
