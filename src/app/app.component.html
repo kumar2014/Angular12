@@ -1,9 +1,8 @@
 <div class="form">
   <h2 id="registration">Registration Form</h2>
-
   <!-- #3 (ngSubmit)="onSubmit()" -->
-  <!-- #4 Specify local reference variable myForm and lets pass the local refernce variable to onSubmit as a argument  -->
-  <form (ngSubmit)="onSubmit(myForm)" #myForm="ngForm">
+  <!-- #4 #myForm="ngForm" -->
+  <form (ngSubmit)="onSubmit()" #myForm="ngForm">
     <label for="fname">First Name</label>
     <input
       type="text"
@@ -14,8 +13,6 @@
       required
       #fname="ngModel"
     />
-    <!-- #5 We have to specify the name to get the control object for this input field -->
-    <!-- #6 We have wrap ngModel The ngModal simply tell angular that this inupt element is a control of this form-->
 
     <label for="lname">Last Name</label>
     <input
