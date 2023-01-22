@@ -1,6 +1,7 @@
 <div>
+  <!-- #8 (searchTextChanged)="onSearchTextEntered($event)"-->
   <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
-  <!-- #8 (filterRadioButtonSelectionChanged)="onFilterRadioButtonChanged($event)" -->
+
   <app-filter
     [total]="getTotalCourses()"
     [free]="getTotalFreeCourses()"
@@ -9,17 +10,14 @@
   ></app-filter>
 </div>
 
-<!-- #9  *ngIf="
-courseCountRadioButton === 'All' || courseCountRadioButton === course.type
-" -->
 <ng-container *ngFor="let course of courses">
   <!-- courseCountRadioButton === 'All' || courseCountRadioButton === course.type -->
   <!-- *ngIf="searchText === '' || course.name.toLowerCase().includes(searchText)" -->
+
+  <!-- #9 *ngIf="searchText === '' || course.name.toLowerCase().includes(searchText)" -->
   <div
     class="course-container"
-    *ngIf="
-      courseCountRadioButton === 'All' || courseCountRadioButton === course.type
-    "
+    *ngIf="searchText === '' || course.name.toLowerCase().includes(searchText)"
   >
     <div class="course-card">
       <div>

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./courses.component.css'],
 })
 export class CoursesComponent {
-
   courses = [
     {
       id: 101,
@@ -117,7 +116,7 @@ export class CoursesComponent {
         'In this course you will learn about reactive web development using HTML & CSS. This course will start teaching you from basics of HTML & CSS and as you progress, you will learn all the advance concepts.',
     },
   ];
-  
+
   getTotalCourses() {
     return this.courses.length;
   }
@@ -128,15 +127,15 @@ export class CoursesComponent {
     return this.courses.filter((course) => course.type === 'Premium').length;
   }
 
-  // #6
   courseCountRadioButton: string = 'All';
+  // #6
   searchText: string = '';
-// #7
+
   onFilterRadioButtonChanged(data: string) {
     this.courseCountRadioButton = data;
     console.log(this.courseCountRadioButton);
   }
-
+  // #7
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
     //console.log(this.searchText);
