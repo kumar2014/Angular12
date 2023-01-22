@@ -1,4 +1,8 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!-- #2 -->
+<!-- <app-demo></app-demo> -->
+
+<!-- #9  <app-customer-list></app-customer-list>-->
+<!-- #10 Crating a local reference variable #customer -->
+<app-customer-list #customer></app-customer-list>
+<!-- #11 -->
+<p>You have selected {{ customer.selectedCustomer?.name }}</p>
