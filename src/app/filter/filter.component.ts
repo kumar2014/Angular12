@@ -5,10 +5,9 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.css'],
 })
-export class FilterComponent implements OnInit {
+export class FilterComponent {
   constructor() {}
-
- 
+  // #1
   @Input('total') all: number = 0;
   @Input() free: number = 0;
   @Input() premium: number = 0;
