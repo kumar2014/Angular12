@@ -13,12 +13,14 @@ export class AngularComponent implements OnInit {
   
     title="Angular";
   
-    constructor(private enrollService: EnrollService){
+   
   
     }
-  
+  // #5
     OnEnroll(){
-      this.enrollService.OnEnrollClicked(this.title);
+      // #6 We have to create a instance of the entroll service class
+      const entrollService = new EnrollService();
+      this.entrollService.OnEnrollClicked(this.title);
     }
   ngOnInit() {
   }
