@@ -1,12 +1,14 @@
 <!-- Example1 #1 Creating a local reference variable #dobInput, #ageInput -->
 
 <div>
-<label>DOB: </label>
-<input type="date" #dobInput (blur)="calculateAge()">
+  <label>DOB: </label>
+  <input type="date" #dobInput (blur)="calculateAge()" />
 </div>
 <div>
-<label>Age: </label>
-<input type="text" #ageInput>
+  <label>Age: </label>
+  <input type="text" #ageInput />
 </div>
+<!-- Example 2.#3 -->
 <app-demo></app-demo>
-{{ demoComp.sayHello()}}
+<!-- Example 2.#4 -->
+{{ demoComp.sayHello() }}

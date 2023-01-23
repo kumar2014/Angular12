@@ -9,6 +9,7 @@ export class DemoComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+  // Example 2.#1
   sayHello() {
     console.log('Hello from demo component class!');
   }

@@ -11,7 +11,7 @@ export class AppComponent {
   @ViewChild('dobInput') dateOfBirth: ElementRef; // We want to assign dateOfBirth property with a refernce to local reference variable
   @ViewChild('ageInput') age: ElementRef;
 
-  // Example2: How to access child component to parent component
+  // Example2. #2: How to access child component to parent component
   @ViewChild(DemoComponent, { static: true }) demoComp: DemoComponent;
 
   // Example1: #3
@@ -25,5 +25,5 @@ export class AppComponent {
     // console.log(this.dateOfBirth);
     // console.log(this.age);
   }
-  
+
 }
