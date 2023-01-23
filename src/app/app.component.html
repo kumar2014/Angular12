@@ -1,4 +1,12 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!-- Example1 #1 Creating a local reference variable #dobInput, #ageInput -->
+
+<div>
+<label>DOB: </label>
+<input type="date" #dobInput (blur)="calculateAge()">
+</div>
+<div>
+<label>Age: </label>
+<input type="text" #ageInput>
+</div>
+<app-demo></app-demo>
+{{ demoComp.sayHello()}}
