@@ -5,19 +5,19 @@ import { UserService } from '../Services/user.service';
   selector: 'app-adduser',
   templateUrl: './adduser.component.html',
   styleUrls: ['./adduser.component.css'],
-  //#11
+  
 })
 export class AdduserComponent implements OnInit {
-  // #12
+  // #9
   username: string = '';
   status: string = 'active';
 
-  // #10
+  // #8
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {}
 
-  // #14
+  // #10
   AddUser() {
     this.userService.AddNewUser(this.username, this.status);
     //console.log(this.userService.users);
