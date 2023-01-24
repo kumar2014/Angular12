@@ -3,13 +3,12 @@ import { UserService } from './Services/user.service';
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ],
-  providers: [UserService]
+  styleUrls: ['./app.component.css'],
+  providers: [UserService], //#3
 })
-export class AppComponent  {
+export class AppComponent {
   title = 'UserDetailService';
 
-  constructor(private userService: UserService){
-
-  }
+  // #2 create a instance for UserService
+  constructor(private userService: UserService) {}
 }

@@ -1,5 +1,6 @@
 import { EventEmitter } from '@angular/core';
 
+// #1
 export class UserService {
   users = [
     {
@@ -36,6 +37,7 @@ export class UserService {
     },
   ];
 
+  // #11 Create an event OnShowDetailsClicked
   OnShowDetailsClicked = new EventEmitter<{
     name: string;
     job: string;
@@ -45,6 +47,7 @@ export class UserService {
     avatar: string;
   }>();
 
+  // #12 Raise OnShowDetailsClicked method 
   ShowUserDetails(user: {
     name: string;
     job: string;
@@ -56,3 +59,5 @@ export class UserService {
     this.OnShowDetailsClicked.emit(user);
   }
 }
+// Note:
+// #11 This event emitter its going to emit a data of type object and that object is going to have user properties
