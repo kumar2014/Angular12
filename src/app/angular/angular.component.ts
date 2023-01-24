@@ -5,14 +5,14 @@ import { EnrollService } from '../Services/enroll.service';
   selector: 'app-angular',
   templateUrl: './angular.component.html',
   styleUrls: ['./angular.component.css'],
-  providers: [EnrollService], //#4
 })
 export class AngularComponent {
   title = 'Angular';
-  // #3
+  // #4
   constructor(private enrollService: EnrollService) {}
+
+  // #5
   OnEnroll() {
-    //#5
     this.enrollService.OnEnrollClicked(this.title);
   }
 }

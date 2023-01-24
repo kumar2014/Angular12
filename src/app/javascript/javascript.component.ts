@@ -5,12 +5,12 @@ import { EnrollService } from '../Services/enroll.service';
   selector: 'app-javascript',
   templateUrl: './javascript.component.html',
   styleUrls: ['./javascript.component.css'],
-  providers: [EnrollService], //#4
 })
 export class JavascriptComponent implements OnInit {
   title = 'JavaScript';
-  // #2
+  // #4
   constructor(private enrollService: EnrollService) {}
+
   ngOnInit() {}
   //#5
   OnEnroll() {
