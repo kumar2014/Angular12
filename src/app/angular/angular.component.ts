@@ -5,15 +5,14 @@ import { EnrollService } from '../Services/enroll.service';
   selector: 'app-angular',
   templateUrl: './angular.component.html',
   styleUrls: ['./angular.component.css'],
-  //providers: [EnrollService]
+  providers: [EnrollService], //#4
 })
 export class AngularComponent {
   title = 'Angular';
-
-  // #5
+  // #3
+  constructor(private enrollService: EnrollService) {}
   OnEnroll() {
-    // #6 We have to create a instance of the entroll service class
-    const entrollService = new EnrollService();
-    entrollService.OnEnrollClicked(this.title);
+    //#5
+    this.enrollService.OnEnrollClicked(this.title);
   }
 }
