@@ -14,26 +14,39 @@ export class AppComponent implements OnInit {
       observer.next('0');
     }, 3000);
     observer.next('1');
-    observer.next('2');
+    // #1
+    observer.error(new Error('Something Went Wrong! Please try later'));
     observer.next('3');
+    observer.next('4');
+    setTimeout(() => {
+      observer.complete();
+    }, 4000);
   });
   ngOnInit() {
-    this.myobservable.subscribe((val) => {
-      console.log(val);
-    });
+    this.myobservable.subscribe(
+      (val) => {
+        console.log(val);
+        // #2 Second callback function for error message
+      },
+      (error) => {
+        // alert(error.message);
+      },
+      () => {
+        alert('Observable has complete emitting all values.');
+      }
+    );
   }
 }
 
-// Note:
-// The observable constructor we need to pass a callback a function and this callback function will receive an argument which will be the observer and this argument will be injected by rxjs lib
+//Note:
+// Error: When this error will be emitted after that we have 3 and 4 these two values will not get emitted by the observable
+// Whenever an observable emits an error after that if we have any values to be emittedthose values will not get emitted.
 
-// This observer is nothing but the subscriber which is waiting for the data
-//  To emit the data on this observer we can call next method
+// Once the complete signal is emitted from the observable after that if we have any data to be emitted that will not get emited.
+// For example
 
-// The observable will emit the data if there is a subscriber if no subscriber in that case the observable will not emit the data
+// If We change the time interval 1seconds this complete signal will be emitted after 1seconds so any value which we are emitting agter 1seconds for examples this value 0 and 1 other value not get emitted
 
-// Subscribe: this subscribes takes three optional parameters and these parameters are callback functions
-// T he first callback function is next, error, complete
-// The Next parameter is a callback function which gets executed every time this next method returns a value
+// once the complete signal has been emitted from the observable after that no value will be emitted by that the observable
 
-// The val parameter have the value which the observable has emitted
+// once the observable return the error after that it will also return a complete singnal
