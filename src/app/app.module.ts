@@ -8,6 +8,9 @@ import { Comp2Component } from './view-encapsulation-emulated/comp2/comp2.compon
 import { ViewEncapsulationNoneComponent } from './view-encapsulation-none/view-encapsulation-none.component';
 import { Comp3Component } from './view-encapsulation-none/comp3/comp3.component';
 import { Comp4Component } from './view-encapsulation-none/comp4/comp4.component';
+import { ViewEncapsulationShadowDomComponent } from './view-encapsulation-shadow-dom/view-encapsulation-shadow-dom.component';
+import { Comp5Component } from './view-encapsulation-shadow-dom/comp5/comp5.component';
+import { Comp6Component } from './view-encapsulation-shadow-dom/comp6/comp6.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -19,6 +22,9 @@ import { Comp4Component } from './view-encapsulation-none/comp4/comp4.component'
     ViewEncapsulationNoneComponent,
     Comp3Component,
     Comp4Component,
+    ViewEncapsulationShadowDomComponent,
+    Comp5Component,
+    Comp6Component,
   ],
   bootstrap: [AppComponent],
 })
