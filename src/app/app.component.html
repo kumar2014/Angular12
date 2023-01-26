@@ -1,4 +1,23 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div style="margin: 20px auto; width: 780px;">
+  <div class="app-component">
+    <h2>App Component</h2>
+    <p>This is <b>app</b> component.</p>
+    <button>Button</button>
+  </div>
+
+  <div class="component-container">
+    <h2>ViewEncapsulation.none</h2>
+    <app-comp1></app-comp1>
+    <app-comp2></app-comp2>
+  </div>
+  <div class="component-container">
+    <h2>ViewEncapsulation.ShadowDom</h2>
+    <app-comp3></app-comp3>
+    <app-comp4></app-comp4>
+  </div>
+  <div class="component-container">
+    <h2>ViewEncapsulation.ShadowDom</h2>
+    <app-comp5></app-comp5>
+    <app-comp6></app-comp6>
+  </div>
+</div>
