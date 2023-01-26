@@ -1,4 +1,12 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<p>This is a App Component</p>
+<app-demo>
+  <p #paragraph>This is paragraph</p>
+</app-demo>
+
+<h2>This is App Component</h2>
+<app-demo>
+  <p #paragraph>This is a paragraph</p>
+</app-demo>
+
+<!-- Note: -->
+<!-- We want to access this paragraph element inside the component class of this demo class for thar we have to add a local refernce variable -->
