@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+// Example 2:
 @Component({
   selector: 'app-notification',
   template: `<div class="alert alert-success" [ngClass]="{fadeOut: displayNotification}"> 
