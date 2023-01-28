@@ -1,33 +1,27 @@
-<!-- Exapmle 1: -->
-
-<!-- <div appClass [display]="{ container: true, 'change-font': true }"> -->
-<!--  When we are using class name with - we have to use ' ' example 'change-font' -->
-<!-- This is a demo HTML content to understand how to create custom ngClass
-  directive in Angular.
-</div> -->
-
-<!-- Exapmle 2: -->
-<div [appClass]="{ container: true, 'change-font': true }">
-  <!--  When we are using class name with - we have to use ' ' example 'change-font' -->
-  This is a demo HTML content to understand how to create custom ngClass
-  directive in Angular.
+<div class="container">
+  <p>Highlight most liked items</p>
+  <div class="video-container" *ngFor="let video of videos">
+    <div
+      class="video-card"
+      [appHighlight]="video.likes === mostLikedVideo.likes"
+    >
+      <div>
+        <img [src]="video.thumbnail" style="width:220px; height:210px;" />
+      </div>
+      <div>
+        <h4>{{ video.title }}</h4>
+      </div>
+      <div class="details">
+        <div class="video-data">
+          <i class="material-icons">thumb_up</i>{{ video.likes }}
+        </div>
+        <div class="video-data">
+          <i class="material-icons">thumb_down</i>{{ video.dislikes }}
+        </div>
+        <div class="video-data">
+          <i class="material-icons">reply_all</i>{{ video.share }}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-We can use condition in the class name
-
-<div [appClass]="{ container: 10 < 5, 'change-font': true }">
-  <!--  When we are using class name with - we have to use ' ' example 'change-font' -->
-  This is a demo HTML content to understand how to create custom ngClass
-  directive in Angular.
-</div>
-
-<!-- <div [appClass]="{ container: 10 > 5, 'change-font': true }">
-  <p>
-    This is a demo HTML content to understand how to create custom ngClass
-    directive in Angular.
-  </p>
-</div> -->
-
-<!-- Note: -->
-
-<!-- We can use true are false in the class name conainer: false, -->

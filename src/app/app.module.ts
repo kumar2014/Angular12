@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ClassDirective } from './CustomDirective/class.directive';
+
+import { HighlightDirective } from './CustomDirective/highlight.directive';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent, ClassDirective],
+  declarations: [AppComponent, HighlightDirective],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
