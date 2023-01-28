@@ -1,4 +1,33 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!-- Exapmle 1: -->
+
+<!-- <div appClass [display]="{ container: true, 'change-font': true }"> -->
+<!--  When we are using class name with - we have to use ' ' example 'change-font' -->
+<!-- This is a demo HTML content to understand how to create custom ngClass
+  directive in Angular.
+</div> -->
+
+<!-- Exapmle 2: -->
+<div [appClass]="{ container: true, 'change-font': true }">
+  <!--  When we are using class name with - we have to use ' ' example 'change-font' -->
+  This is a demo HTML content to understand how to create custom ngClass
+  directive in Angular.
+</div>
+
+We can use condition in the class name
+
+<div [appClass]="{ container: 10 < 5, 'change-font': true }">
+  <!--  When we are using class name with - we have to use ' ' example 'change-font' -->
+  This is a demo HTML content to understand how to create custom ngClass
+  directive in Angular.
+</div>
+
+<!-- <div [appClass]="{ container: 10 > 5, 'change-font': true }">
+  <p>
+    This is a demo HTML content to understand how to create custom ngClass
+    directive in Angular.
+  </p>
+</div> -->
+
+<!-- Note: -->
+
+<!-- We can use true are false in the class name conainer: false, -->
