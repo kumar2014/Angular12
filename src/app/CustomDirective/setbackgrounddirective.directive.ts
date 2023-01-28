@@ -5,8 +5,8 @@ import { Directive, ElementRef, OnInit } from '@angular/core';
 })
 export class SetbackgrounddirectiveDirective implements OnInit {
   constructor(private element: ElementRef) {
-    //element.nativeElement.style.backgroundColor = '#C8E6C9';
-    this.element = element;
+    // element.nativeElement.style.backgroundColor = '#C8E6C9';
+    this.element = element; //accessing this constructor
   }
 
   ngOnInit() {
