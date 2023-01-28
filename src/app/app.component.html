@@ -1,4 +1,10 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div class="container"
+  [appStyle]="{
+    backgroundColor: active ? 'Green' : 'Red',
+    color: 'white',
+    fontWeight: 'bold'
+  }"
+>
+  This is a demo HTML content to understand how to create custom ngStyle
+  directive in Angular.
+</div>
