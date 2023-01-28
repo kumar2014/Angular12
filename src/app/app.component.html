@@ -1,4 +1,21 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<button class="btn btn-notice" (click)="DisplayNotice()">Show notice</button>
+<div class="info-container notice" *appIf="display">
+  <h3>This is important notice!</h3>
+  <p>This is a notice issued for all website users.</p>
+</div>
+
+<!-- Exapmle 2: -->
+<!-- <ng-template #myVar>
+  <p>This is an example paragraph.</p>
+</ng-template>
+
+<ng-template [ngIf]="display">
+  <div class="info-container notice">
+    <h3>This is important notice!</h3>
+    <p>This is a notice issued for all website users.</p>
+  </div>
+</ng-template>
+
+<ng-template #myVar>
+  <p>This is an example paragraph.</p>
+</ng-template> -->
