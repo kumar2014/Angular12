@@ -1,14 +1,16 @@
 <button class="btn btn-notice" (click)="DisplayNotice()">Show notice</button>
-<div class="info-container notice" *appIf="display">
+<div class="info-container notice" *ngIf="display; else myVar">
   <h3>This is important notice!</h3>
   <p>This is a notice issued for all website users.</p>
 </div>
-
-<!-- Exapmle 2: -->
-<!-- <ng-template #myVar>
+<ng-template #myVar>
   <p>This is an example paragraph.</p>
 </ng-template>
 
+<!-- Exapmle 2: -->
+
+<!-- <button class="btn btn-notice" (click)="DisplayNotice()">Show notice</button>
+// Angular internally create like this
 <ng-template [ngIf]="display">
   <div class="info-container notice">
     <h3>This is important notice!</h3>

@@ -9,6 +9,6 @@ export class AppComponent {
   display: boolean = false;
 
   DisplayNotice() {
-    this.display = true;
+    this.display = !this.display;
   }
 }
