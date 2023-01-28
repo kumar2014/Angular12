@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
-import { BetterhighlightdirectiveDirective } from './CustomDirective/betterhighlightdirective.directive';
+import { BetterhighlightDirective } from './CustomDirective/betterhighlightdirective.directive';
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [AppComponent, BetterhighlightdirectiveDirective],
+  declarations: [AppComponent, BetterhighlightDirective],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

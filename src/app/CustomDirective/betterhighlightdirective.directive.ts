@@ -9,22 +9,29 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appBetterhighlightdirective]',
+  selector: "[appBetterhighlight]",
 })
-export class BetterhighlightdirectiveDirective {
+export class BetterhighlightDirective implements OnInit {
   constructor(private element: ElementRef, private renderer: Renderer2) {}
+  // #1 We want to pass the css value from our component for that using @input
+  @Input() defaultColor: string = "transparent";
+  @Input("appBetterhighlight") highlightColor: string = "pink";
+  @Input() title: string = "This is title";
 
-  // #1 initial Value
-  @HostBinding('style.backgroundColor') background: string = 'transparent';
-  @HostBinding('style.border') border: string = 'none';
+  @HostBinding("style.backgroundColor") background: string = this.defaultColor;
+  @HostBinding("style.border") border: string = "none";
 
-  @HostListener('mouseenter') mouseenter() {
-    this.background = 'pink';
-    this.border = 'red 2px solid';
+  ngOnInit() {
+    this.background = this.defaultColor;
   }
 
-  @HostListener('mouseleave') mouseleave() {
-    this.background = 'transparent';
-    this.border = 'none';
+  @HostListener("mouseenter") mouseenter() {
+    this.background = this.highlightColor;
+    this.border = "red 2px solid";
+  }
+
+  @HostListener("mouseleave") mouseleave() {
+    this.background = this.defaultColor;
+    this.border = "none";
   }
 }
