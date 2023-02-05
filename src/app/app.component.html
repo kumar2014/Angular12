@@ -1,4 +1,13 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<!-- #1 -->
+<div class="container">
+  <input type="text" #input />
+  <!-- #5 add a local refernce variable #input -->
+  <!-- #6 bind the click event method let's pass the localrefence variable  -->
+  <button (click)="onSubmit(input)">Submit</button>
+</div>
+
+<!-- #9  bind the value property of the demoComponent with the inputtext property of appComponent -->
+<app-demo [value]="inputText" *ngIf="destroy">
+  <h4>This is projected content{{ inputText }}</h4>
+</app-demo>
+<button (click)="destroyComponent()">Destroy</button>
