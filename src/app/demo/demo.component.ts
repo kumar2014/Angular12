@@ -23,38 +23,38 @@ export class DemoComponent implements OnInit {
     console.log(this.value); // Test value will show in console
   }
 
-  // #2
+  // #11: This ngOnChanges is the only life cycle hook which takes an argument
   ngOnChanges(change: SimpleChanges) {
     console.log('ngOnchanges called');
     console.log(change); //
   }
-  //  #3
+  // #12 ngOnInit  gets fired only once.
   ngOnInit() {
     console.log('ngOnInit called');
-    // console.log(this.value);
+    // console.log(this.value);  // this ng onInit gets called the input property of the components are updated
   }
-  // #4
+  // #13
   ngDoCheck() {
     console.log('ngDoCheck called');
   }
 
-  // #5 : Projected content change it will call only one time
+  // #14 : Projected content change it will call only one time
   ngAfterContentInit() {
     console.log('ngAfterContentInit called');
   }
-  // #6: It will call each change Detection
+  // #15: It will call each change Detection
   ngAfterContentChecked() {
     console.log('ngAfterContentChecked called');
   }
-  // #7:
+  // #16:
   ngAfterViewInit() {
     console.log('ngAfterViewInit called');
   }
-  //  #8
+  //  #17
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked called');
   }
-  // #9
+  // #18
   ngOnDestroy() {
     console.log('ngOnDestroy called');
   }
