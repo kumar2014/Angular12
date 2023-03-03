@@ -84,12 +84,18 @@ export class AppComponent implements OnInit {
   // Example 3: Method 2 Both map and filter using one
   myObservable1 = from(this.array1).pipe(
     map((val) => {
-      return val * 5;
+      return val * 5;   // output 5,10,30,35,40
     }),
     filter((val) => {
-      return val >= 30;
+      return val >= 30;  //output 30,35,40
     })
   );
+
+ //The Same pipe method we can specify another parameter which can be an operator
+// here we are specify a second argument for pipe method
+// The first this map operator will be applied on this my observable, then the map operator will return a new observable
+// and on that new observable this filter operator will be applied and then this filter operator will also return a new observable and that observable will be assigned to this  transformend observable 
+// Now this transformed observable should also emit only the filtered data  
 
   ngOnInit() {
     this.myObservable1.subscribe(
