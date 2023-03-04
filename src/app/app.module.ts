@@ -9,18 +9,10 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './courses/course/course.component';
-import { RouterModule, Routes } from '@angular/router';
 import { CoursesService } from './Services/courses.service';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
-const appRoutes: Routes = [
-  // {path: '', component: HomeComponent},
-  { path: '', redirectTo: 'Home', pathMatch: 'full' },
-  { path: 'Home', component: HomeComponent },
-  { path: 'About', component: AboutComponent },
-  { path: 'Contact', component: ContactComponent },
-  { path: 'Courses', component: CoursesComponent },
-  { path: 'Course/:id', component: CourseComponent },
-];
+
 
 @NgModule({
   declarations: [
@@ -31,7 +23,7 @@ const appRoutes: Routes = [
     CoursesComponent,
     CourseComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule,AppRoutingModule],
   providers: [CoursesService],
   bootstrap: [AppComponent],
 })
