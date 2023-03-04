@@ -14,38 +14,7 @@
       <!-- localhost:4200/Courses -->
     </ul>
   </div>
-  {{Angular Route guards can be used to control whether the user can navigate to
-  or away from the given route based on some condition. Angular provide the
-  route cards for the same purpose one of the common scenarios where we can
-  use a route card is authentication, So we want our app to stop the
-  unauthorized users fromaccessing the protected routes When a user clicks on
-  the buy course button of the course in that case the user should be
-  redirected to the check-in page only the user is logged in if the user is
-  not logged in that case he should not be redirected to the check-in page in
-  that case he should be redirected to login page first so that he will first
-  login and then he can buy the coursefor such scenarios we can use angular's
-  route cards. Use cases To confirm the navigation operation Asking whether to
-  save data before moving away from view Allow access to certain parts of the
-  application to specific users Validating the route parameters before
-  navigating to the route Fetching some data before you display the component
-  view In Angular }}
-
-  {{ we have 5 different types of route cardsand these are canActivate, canDeactivate,Resolve,CanLoad,CanActivateChild
-  }}
-  {{How to create a route Guard }}
-  {{1.Create a route guard as a service @Injectable() export calss CourseRouteService{} }}
-  {{2.implements canActive interface 
-  export calss CourseRouteService implements canActive{} }}
-
-  {{3.Implement the required route guard method. 
-    export calss CourseRouteService implements canActive{
-    canActivate() { //check wether the route can be activated //From this method
-    we need to return a boolean value either true or false if we return true
-    from this method in this case the navigation process will continue but if we
-    return false from here in that case the navigation process will stop and the
-    user will not to be redirected to the route return true; // return false if
-    you want to cancel the navigation } 4. provide the Guard service from the
-    root appmodule  }}
+  
 
   <div class="component-container">
     <!-- <app-home></app-home>
