@@ -19,7 +19,7 @@ const appRoutes: Routes = [
   {
     path: 'Courses',
     component: CoursesComponent,
-    canActivate: [CourseGuardService],
+    canActivateChild: [CourseGuardService],
   },
   { path: 'Course/:id', component: CourseComponent },
 ];
