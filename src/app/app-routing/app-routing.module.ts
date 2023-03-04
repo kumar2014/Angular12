@@ -15,18 +15,19 @@ const appRoutes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'About', component: AboutComponent },
   { path: 'Contact', component: ContactComponent },
-  // #4 we have to use canActivateChild:[CourseGuardService]  CourseGuardService is a class name
+  // #4 we have to use canActivate:[CourseGuardService]  CourseGuardService is a class name
   {
     path: 'Courses',
     component: CoursesComponent,
-    canActivateChild: [CourseGuardService],
-    children: [{ path: 'Course/:id', component: CourseComponent }],
   },
+ {path: 'Courses', children:[
+  { path: 'Course/:id', component: CourseComponent },
+ ]},
+   
+  
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-//This is not working properly please refere the video
