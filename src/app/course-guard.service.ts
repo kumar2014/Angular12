@@ -18,8 +18,8 @@ return false;
   }
   
 }
-canActivateChild(route:ActivatedRouteSnapshot,state:RouterStateSnapshot):boolean {
-return this.canActivate(route,state)
+canActivateChild(childRoute:ActivatedRouteSnapshot,state:RouterStateSnapshot):boolean {
+return this.canActivate(childRoute,state)
 }
 
 }

@@ -20,8 +20,8 @@ const appRoutes: Routes = [
     path: 'Courses',
     component: CoursesComponent,
     canActivateChild: [CourseGuardService],
+    children: [{ path: 'Course/:id', component: CourseComponent }],
   },
-  { path: 'Course/:id', component: CourseComponent },
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
@@ -29,6 +29,4 @@ const appRoutes: Routes = [
 })
 export class AppRoutingModule {}
 
-
-
-
+//This is not working properly please refere the video
