@@ -9,7 +9,6 @@ import { CoursesComponent } from '../courses/courses.component';
 import { CourseComponent } from '../courses/course/course.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseGuardService } from '../course-guard.service';
-// #1
 const appRoutes: Routes = [
   // {path: '', component: HomeComponent},
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -24,8 +23,6 @@ const appRoutes: Routes = [
   },
   { path: 'Course/:id', component: CourseComponent },
 ];
-// #2: add RouterModule.forRoot(appRoutes)
-// #3: add exports:[RouterModule]
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
   exports: [RouterModule],
