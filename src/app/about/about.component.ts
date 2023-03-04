@@ -12,6 +12,10 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {}
 
   GoToHome() {
-    //this.router.navigate(['Home'], {relativeTo: this.route})//localhost:4200/About/Home
+    // Method1:
+    this.router.navigate(['Home']);
+
+    //Method2
+    //  this.route.navigateByUrl('Home',{relativeTo: this.route})//localhost:4200/About/Home
   }
 }
