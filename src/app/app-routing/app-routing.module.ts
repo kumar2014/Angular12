@@ -8,6 +8,7 @@ import { ContactComponent } from '../contact/contact.component';
 import { CoursesComponent } from '../courses/courses.component';
 import { CourseComponent } from '../courses/course/course.component';
 import { RouterModule, Routes } from '@angular/router';
+import { CourseGuardService } from '../course-guard.service';
 // #1
 const appRoutes: Routes = [
   // {path: '', component: HomeComponent},
@@ -15,18 +16,18 @@ const appRoutes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'About', component: AboutComponent },
   { path: 'Contact', component: ContactComponent },
-  { path: 'Courses', component: CoursesComponent },
+  // #4 we have to use canActivate:[CourseGuardService]  CourseGuardService is a class name
+  {
+    path: 'Courses',
+    component: CoursesComponent,
+    canActivate: [CourseGuardService],
+  },
   { path: 'Course/:id', component: CourseComponent },
 ];
 // #2: add RouterModule.forRoot(appRoutes)
-// #3: add exports:[RouterModule]  
+// #3: add exports:[RouterModule]
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
-  exports:[RouterModule]  
+  exports: [RouterModule],
 })
-
-
-export class AppRoutingModule { 
-
- 
-}
+export class AppRoutingModule {}
