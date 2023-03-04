@@ -8,7 +8,7 @@ import { ContactComponent } from '../contact/contact.component';
 import { CoursesComponent } from '../courses/courses.component';
 import { CourseComponent } from '../courses/course/course.component';
 import { RouterModule, Routes } from '@angular/router';
-
+// #1
 const appRoutes: Routes = [
   // {path: '', component: HomeComponent},
   { path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -18,11 +18,14 @@ const appRoutes: Routes = [
   { path: 'Courses', component: CoursesComponent },
   { path: 'Course/:id', component: CourseComponent },
 ];
-
+// #2: add RouterModule.forRoot(appRoutes)
+// #3: add exports:[RouterModule]  
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
   exports:[RouterModule]  
 })
+
+
 export class AppRoutingModule { 
 
  

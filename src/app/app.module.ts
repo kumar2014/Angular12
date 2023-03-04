@@ -23,6 +23,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     CoursesComponent,
     CourseComponent,
   ],
+  // #5: add AppRoutingModule in imports array
   imports: [BrowserModule,AppRoutingModule],
   providers: [CoursesService],
   bootstrap: [AppComponent],
