@@ -8,13 +8,13 @@ import { CoursesService } from '../../Services/courses.service';
   styleUrls: ['./course.component.css'],
 })
 export class CourseComponent implements OnInit {
-  constructor(private service: CoursesService, private route: ActivatedRoute) {}
+  constructor(private service: CoursesService, private activatedRoute: ActivatedRoute) {}
 
   course;
-  courseId: number;
+  courseId;
 
   ngOnInit(): void {
-    this.courseId = this.route.snapshot.params['id'];
+    this.courseId = this.activatedRoute.snapshot.paramMap.get('id')
     //this.courseId = this.route.snapshot.params['name'];
     this.course = this.service.courses.find((x) => x.id == this.courseId);
   }
