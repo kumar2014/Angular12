@@ -7,6 +7,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./admin/admin.module').then((mod) => mod.AdminModule),
   },
+  {
+    path: 'user',
+    loadChildren: () =>
+      import('./user/user.module').then((mod) => mod.UserModule),
+  },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
