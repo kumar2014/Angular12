@@ -10,7 +10,7 @@ import { ListComponent } from './list/list.component';
     BrowserModule, // Step:#3
     FormsModule,
   ],
-  declarations: [AppComponent, LoginComponent, ListComponent],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
