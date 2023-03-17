@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
 
-
 const routes: Routes = [
   {
     path: 'login',
@@ -14,6 +13,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-  declarations: [LoginComponent, ListComponent],
+  // declarations: [LoginComponent, ListComponent],
 })
 export class AdminRoutingModule {}
