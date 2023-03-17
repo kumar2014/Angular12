@@ -5,7 +5,7 @@ import { CustomersComponent } from './customers.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'CustomersComponent',
     component: CustomersComponent,
   },
 ];
@@ -15,9 +15,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class CustomersRoutingModule {}
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/
