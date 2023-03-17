@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { OrdersRoutingModule } from './orders-routing.module';
-import { OrdersComponent } from './orders.component';
+
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   imports: [CommonModule, OrdersRoutingModule],
-  declarations: [OrdersComponent],
+  declarations: [ListComponent],
 })
 export class OrdersModule {}
