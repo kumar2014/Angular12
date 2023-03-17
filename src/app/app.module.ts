@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
-    BrowserModule, // Step:#3
+    BrowserModule,
     FormsModule,
-    AppRoutingModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent],
