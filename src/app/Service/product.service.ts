@@ -13,10 +13,10 @@ export class ProductService {
   constructor(private http: HttpClient) {}
   createProduct(products: { pName: string; desc: string; price: string }) {
     console.log(products);
-    const headers = new HttpHeaders({ myHrader: 'procademy' });
+    const headers = new HttpHeaders({ myHeader: 'procademy' });
     this.http
       .post<{ name: string }>(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products.json',
+        'https://product-2ccde-default-rtdb.firebaseio.com/products.json',
         products,
         { headers }
       )
@@ -34,7 +34,7 @@ export class ProductService {
   fetchProduct() {
     return this.http
       .get<{ [key: string]: product }>(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products.json'
+        'https://product-2ccde-default-rtdb.firebaseio.com/products.json'
       )
 
       .pipe(
@@ -52,7 +52,7 @@ export class ProductService {
   deleteProduct(id: string) {
     this.http
       .delete(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products/' +
+        'https://product-2ccde-default-rtdb.firebaseio.com/products/' +
           id +
           '.json'
       )
@@ -61,14 +61,14 @@ export class ProductService {
   deleteAllProduct() {
     this.http
       .delete(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products.json/'
+        'https://product-2ccde-default-rtdb.firebaseio.com/products.json/'
       )
       .subscribe();
   }
   updateProduct(id: string, value: product) {
     this.http
       .put(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products/' +
+        'https://product-2ccde-default-rtdb.firebaseio.com/products/' +
           id +
           '.json',
         value
