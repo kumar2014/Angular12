@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddUserComponent } from './add-user/add-user.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { LoginComponent } from './login/login.component';
+import { RolesComponent } from './roles/roles.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
   {
