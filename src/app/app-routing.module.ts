@@ -1,21 +1,83 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
+import { LoginComponent } from './login/login.component';
+import { UserLayoutComponent } from './user-layout/user-layout.component';
 
 const routes: Routes = [
   {
-    path: 'customers',
-    loadChildren: () =>
-      import('./customers/customers.module').then((m) => m.CustomersModule),
+    path: '',
+    component: LoginComponent,
   },
   {
-    path: 'orders',
-    loadChildren: () =>
-      import('./orders/orders.module').then((m) => m.OrdersModule),
+    path: 'login',
+    component: LoginComponent,
   },
   {
     path: '',
-    redirectTo: '',
-    pathMatch: 'full',
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: 'admin-dash',
+        component: AdminDashboardComponent,
+      },
+      {
+        path: 'employee',
+        component: EmployeeComponent,
+      },
+      {
+        path: 'roles',
+        component: RolesComponent,
+      },
+    ],
+  },
+  {
+    path: '',
+    component: UserLayoutComponent,
+    children: [
+      {
+        path: 'addUser',
+        component: AddUserComponent,
+      },
+      {
+        path: 'user-dashboard',
+        component: UserDashboardComponent,
+      },
+      {
+        path: 'user-list',
+        component: UserListComponent,
+      },
+    ],
+  },
+  {
+    path: '',
+    component: HomeLayoutComponent,
+    children: [
+      {
+        path: 'way2addUser',
+        component: AddUserComponent,
+      },
+      {
+        path: 'way2user-dashboard',
+        component: UserDashboardComponent,
+      },
+      {
+        path: 'way2user-list',
+        component: UserListComponent,
+      },
+      {
+        path: 'way2admin-dash',
+        component: AdminDashboardComponent,
+      },
+      {
+        path: 'way2employee',
+        component: EmployeeComponent,
+      },
+      {
+        path: 'way2roles',
+        component: RolesComponent,
+      },
+    ],
   },
 ];
 
@@ -25,5 +87,3 @@ const routes: Routes = [
   providers: [],
 })
 export class AppRoutingModule {}
-
-
