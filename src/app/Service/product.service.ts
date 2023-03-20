@@ -14,7 +14,7 @@ export class ProductService {
     const headers = new HttpHeaders({ myHrader: 'procademy' });
     this.http
       .post<{ name: string }>(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products.json',
+        'https://product-2ccde-default-rtdb.firebaseio.com/products.json',
         products,
         { headers }
       )
@@ -26,7 +26,7 @@ export class ProductService {
     return (
       this.http
         .get<{ [key: string]: product }>(
-          'https://angularbykumar-default-rtdb.firebaseio.com/products.json'
+          'https://product-2ccde-default-rtdb.firebaseio.com/products.json'
         )
         // #13 To diplay jon object in web browser
         // This Pipe methos allows us to transform the data before it reaches this subscribe method
@@ -46,7 +46,7 @@ export class ProductService {
   deleteProduct(id: string) {
     this.http
       .delete(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products/' +
+        'https://product-2ccde-default-rtdb.firebaseio.com/products/' +
           id +
           '.json'
       )
@@ -55,14 +55,14 @@ export class ProductService {
   deleteAllProduct() {
     this.http
       .delete(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products.json/'
+        'https://product-2ccde-default-rtdb.firebaseio.com/products.json/'
       )
       .subscribe();
   }
   updateProduct(id: string, value: product) {
     this.http
       .put(
-        'https://angularbykumar-default-rtdb.firebaseio.com/products/' +
+        'https://product-2ccde-default-rtdb.firebaseio.com/products/' +
           id +
           '.json',
         value
