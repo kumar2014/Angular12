@@ -19,9 +19,12 @@ const appRoutes: Routes = [
   {
     path: 'Courses',
     component: CoursesComponent,
-    canActivate: [CourseGuardService],
   },
-  { path: 'Course/:id', component: CourseComponent },
+  {
+    path: 'Courses',
+    canActivateChild: [CourseGuardService],
+    children: [{ path: 'Course/:id', component: CourseComponent }],
+  },
 ];
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot(appRoutes)],
