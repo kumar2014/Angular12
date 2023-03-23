@@ -7,7 +7,7 @@
 }
 .course-container {
   display: inline-flex;
-  margin-top: 25px;
+  margin: 20px 0px;
 }
 
 .course-card {
