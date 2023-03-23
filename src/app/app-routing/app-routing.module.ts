@@ -16,10 +16,10 @@ const appRoutes: Routes = [
   { path: 'About', component: AboutComponent },
   { path: 'Contact', component: ContactComponent },
   // #4 we have to use canActivate:[CourseGuardService]  CourseGuardService is a class name
-  {
-    path: 'Courses',
-    component: CoursesComponent,
-  },
+  // {
+  //   path: 'Courses',
+  //   component: CoursesComponent,
+  // },
   {
     path: 'Courses',
     canActivateChild: [CourseGuardService],
