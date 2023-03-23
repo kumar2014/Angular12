@@ -23,7 +23,7 @@ const appRoutes: Routes = [
   {
     path: 'Courses',
     canActivateChild: [CourseGuardService],
-    children: [{ path: 'Course/:id', component: CourseComponent }],
+    children: [{ path: 'Course/:id', component: CourseComponent }]
   },
 ];
 @NgModule({
