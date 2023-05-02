@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../interface/user';
 
@@ -15,8 +15,12 @@ export class UserService {
   }
 
   getUser(): Observable<User[]> {
+    // let myHeaders = new HttpHeaders({'myheaders': 'headerValue'}); // Passing single value
+    let myHeaders = new HttpHeaders({'myheaders': ['headerValue', 'headerValue2']}); // Passing multiple value
+    myHeaders= myHeaders.set('id', '1234');
+    myHeaders = myHeaders.append('id', '000')
     return this.http.get<User[]>(
-      'https://jsonplaceholder.typicode.com/users/1'
+      'https://jsonplaceholder.typicode.com/users', {headers:myHeaders}
     );
   }
   createUser(user: User): Observable<User[]> {
