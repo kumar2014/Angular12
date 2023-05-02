@@ -7,7 +7,7 @@ import { User } from '../interface/user';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/';
+  private apiUrl = 'https://jsonplaceholder.typicode.com';
   constructor(private http:HttpClient) {}
 
   getUsers(): Observable<User[]> {
