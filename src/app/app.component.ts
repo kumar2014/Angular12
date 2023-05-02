@@ -11,8 +11,8 @@ export class AppComponent implements OnInit {
   name = 'Angular ' + VERSION.major;
 
   private user: User = {
-    id: 1,
-    name: 'Leanne Graham',
+    id: 12,
+    name: 'Junior2 Graham',
     username: 'Bret',
     email: 'Sincere@april.biz',
     address: {
@@ -36,9 +36,12 @@ export class AppComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.onGetUsers();
+    // this.onGetUsers();
     // this.onGetUser();
-    this.onCreateUser();
+    // this.onCreateUser();
+    // this.onUpdateUser();
+    this.onPatchUser();
+    this.onDeleteUser();
   }
   onGetUsers(): void {
     this.userService.getUsers().subscribe(
@@ -50,9 +53,9 @@ export class AppComponent implements OnInit {
 
   onGetUser(): void {
     this.userService.getUser().subscribe(
-      (response) => console.log(response),
+      (response) => console.table(response),
       (error: any) => console.log(error),
-      () => console.log('Done getting users')
+      () => console.log('Done getting user 12')
     );
   }
   onCreateUser(): void {
@@ -60,6 +63,28 @@ export class AppComponent implements OnInit {
       (response) => console.log(response),
       (error: any) => console.log(error),
       () => console.log('Done creating users')
+    );
+  }
+  onUpdateUser(): void {
+    this.userService.updateUser(this.user).subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(error),
+      () => console.log('Done updating users')
+    );
+  }
+  onPatchUser(): void {
+    this.userService.patchUser(this.user).subscribe(
+      (response) => console.log(response),
+      (error: any) => console.log(error),
+      () => console.log('Done Patch users')
+    );
+  }
+
+  onDeleteUser(): void {
+    this.userService.deleteUser(2).subscribe(
+      (response) => console.log('Response from delete', response),
+      (error: any) => console.log(error),
+      () => console.log('Done Patch users')
     );
   }
 }
