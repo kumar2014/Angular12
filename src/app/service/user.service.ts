@@ -19,7 +19,7 @@ export class UserService {
     return this.http.get<User[]>('https://jsonplaceholder.typicode.com/users/1');
 
  }
- creatUser(user:User): Observable<User[]> {
+ createUser(user:User): Observable<User[]> {
   return this.http.post<User[]>('https://jsonplaceholder.typicode.com/users/1');
 
 }
